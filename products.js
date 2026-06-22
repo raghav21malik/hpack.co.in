@@ -1,415 +1,211 @@
 /* =========================================
    HPack Product Catalog - JavaScript
-   Product Data, Filters, Search, Cart
+   Real Product Data from Official Catalogue
    ========================================= */
 
-// ── Product Data ──
 const products = [
   // ─── PHARMA CONTAINERS ───
-  { id: 1, name: "PET Syrup Bottle", category: "pharma", material: "PET", size: 30, unit: "ml", industry: "pharmaceutical", color: "transparent", weight: 5, neck: 20, type: "bottle", features: ["Food Grade", "Recyclable", "Clean Room Packed", "Odorless"], description: "Transparent PET syrup bottle ideal for liquid pharmaceutical formulations. Manufactured in Class 10,000 Clean Room." },
-  { id: 2, name: "PET Syrup Bottle", category: "pharma", material: "PET", size: 60, unit: "ml", industry: "pharmaceutical", color: "transparent", weight: 8, neck: 24, type: "bottle", features: ["Food Grade", "Recyclable", "Clean Room Packed", "Accurate Neck Finish"], description: "Medium-capacity PET syrup bottle with precise 24mm neck finish for pharmaceutical syrups and suspensions." },
-  { id: 3, name: "PET Syrup Bottle", category: "pharma", material: "PET", size: 100, unit: "ml", industry: "pharmaceutical", color: "transparent", weight: 12, neck: 24, type: "bottle", features: ["Food Grade", "Recyclable", "Clean Room Packed", "High Shelf Appeal"], description: "Standard 100ml PET syrup bottle — our most popular pharmaceutical container. Crystal-clear transparency." },
-  { id: 4, name: "PET Syrup Bottle", category: "pharma", material: "PET", size: 150, unit: "ml", industry: "pharmaceutical", color: "transparent", weight: 15, neck: 28, type: "bottle", features: ["Food Grade", "Recyclable", "Clean Room Packed", "Durable"], description: "150ml PET syrup bottle with 28mm neck. Suitable for larger volume pharmaceutical liquids." },
-  { id: 5, name: "PET Syrup Bottle", category: "pharma", material: "PET", size: 200, unit: "ml", industry: "pharmaceutical", color: "transparent", weight: 18, neck: 28, type: "bottle", features: ["Food Grade", "Recyclable", "Clean Room Packed", "Tamper Evident Compatible"], description: "200ml PET syrup bottle designed for family-size pharmaceutical syrups. Compatible with tamper-evident closures." },
-  { id: 6, name: "PET Syrup Bottle", category: "pharma", material: "PET", size: 500, unit: "ml", industry: "pharmaceutical", color: "transparent", weight: 30, neck: 28, type: "bottle", features: ["Food Grade", "Recyclable", "Clean Room Packed", "Bulk Packaging"], description: "Large 500ml PET syrup bottle for bulk pharmaceutical packaging. Lightweight yet durable." },
-  { id: 7, name: "Amber PET Syrup Bottle", category: "pharma", material: "PET", size: 100, unit: "ml", industry: "pharmaceutical", color: "amber", weight: 12, neck: 24, type: "bottle", features: ["UV Protection", "Food Grade", "Clean Room Packed", "Light Sensitive Formulations"], description: "Amber-colored PET bottle providing UV protection for light-sensitive pharmaceutical formulations." },
-  { id: 8, name: "Amber PET Syrup Bottle", category: "pharma", material: "PET", size: 200, unit: "ml", industry: "pharmaceutical", color: "amber", weight: 18, neck: 28, type: "bottle", features: ["UV Protection", "Food Grade", "Clean Room Packed", "Recyclable"], description: "200ml amber PET bottle for light-sensitive pharma liquids. Superior UV barrier properties." },
-  { id: 9, name: "HDPE Tablet Container", category: "pharma", material: "HDPE", size: 50, unit: "ml", industry: "pharmaceutical", color: "white", weight: 8, neck: 38, type: "jar", features: ["Moisture Barrier", "Food Grade", "Child Resistant Compatible", "Clean Room Packed"], description: "White HDPE container for tablets and capsules. Excellent moisture barrier for solid dosage forms." },
-  { id: 10, name: "HDPE Tablet Container", category: "pharma", material: "HDPE", size: 100, unit: "ml", industry: "pharmaceutical", color: "white", weight: 12, neck: 38, type: "jar", features: ["Moisture Barrier", "Food Grade", "Recyclable", "Wide Mouth"], description: "100ml HDPE wide-mouth container for tablets, capsules, and powdered formulations." },
-  { id: 11, name: "HDPE Tablet Container", category: "pharma", material: "HDPE", size: 150, unit: "ml", industry: "pharmaceutical", color: "white", weight: 16, neck: 38, type: "jar", features: ["Moisture Barrier", "Food Grade", "Clean Room Packed", "Bulk Count"], description: "Large 150ml HDPE container for bulk tablet counts. Ideal for hospital and institutional packaging." },
-  { id: 12, name: "HDPE Dry Syrup Bottle", category: "pharma", material: "HDPE", size: 60, unit: "ml", industry: "pharmaceutical", color: "white", weight: 9, neck: 28, type: "bottle", features: ["Moisture Barrier", "Food Grade", "Reconstitution Friendly", "Clean Room Packed"], description: "HDPE bottle designed for dry syrup formulations. Optimal for reconstitution with water before use." },
-  { id: 13, name: "PET Dropper Bottle", category: "pharma", material: "PET", size: 15, unit: "ml", industry: "pharmaceutical", color: "transparent", weight: 4, neck: 18, type: "dropper", features: ["Precision Dispensing", "Food Grade", "Clean Room Packed", "Compact"], description: "15ml PET dropper bottle for ophthalmic, nasal, and ear drop formulations. Precision dispensing." },
-  { id: 14, name: "PET Dropper Bottle", category: "pharma", material: "PET", size: 30, unit: "ml", industry: "pharmaceutical", color: "amber", weight: 6, neck: 20, type: "dropper", features: ["UV Protection", "Precision Dispensing", "Food Grade", "Clean Room Packed"], description: "30ml amber PET dropper bottle with UV protection for sensitive liquid formulations." },
+  { id: 1,  code: "022PRG0010", name: "022PRG0010", category: "pharma", wt: "5+/-0.5", ht: "55+/-1", bdia: "23+/-0.6", ofc: "16+/-1.5", img: "022PRG0010.png" },
+  { id: 2,  code: "022PRG0015", name: "022PRG0015", category: "pharma", wt: "5+/-0.5", ht: "60.6+/-1", bdia: "27.1±1.0", ofc: "26+/-1.5", img: "022PRG0015.png" },
+  { id: 3,  code: "025PRG0020", name: "025PRG0020", category: "pharma", wt: "7.5+/-0.5", ht: "60.6+/-1", bdia: "27.5+/-1.0", ofc: "27+/-1.5", img: "025PRG0020.png" },
+  { id: 4,  code: "025PRG0030", name: "025PRG0030", category: "pharma", wt: "7.5+/-0.5", ht: "76±1.0", bdia: "30.6±1.0", ofc: "43±2.0", img: "025PRG0030.png" },
+  { id: 5,  code: "025PBS0030", name: "025PBS0030", category: "pharma", wt: "7.0±0.5", ht: "78±1.0", bdia: "33±1.0", ofc: "43±2.0", img: "025PBS0030.png" },
+  { id: 6,  code: "024FBS0030", name: "024FBS0030", category: "pharma", wt: "4.0±0.5", ht: "78±1.0", bdia: "31.7±1.0", ofc: "43±2.0", img: "024FBS0030.png" },
+  { id: 7,  code: "028PRA0034", name: "028PRA0034", category: "pharma", wt: "6.0±0.5", ht: "52.3±0.5", bdia: "34±0.5", ofc: "34±2.0", img: "028PRA0034.png" },
+  { id: 8,  code: "028PRG0034", name: "028PRG0034", category: "pharma", wt: "6.5±0.5", ht: "55.5±0.5", bdia: "34±0.5", ofc: "34±2.0", img: "028PRG0034.png" },
+  { id: 9,  code: "036FRP0040", name: "036FRP0040", category: "pharma", wt: "11±1.0", ht: "69.5±1.0", bdia: "44.3±1.0", ofc: "82±4.0", img: "036FRP0040.png" },
+  { id: 10, code: "025PRG0050", name: "025PRG0050", category: "pharma", wt: "10±0.5", ht: "85±1.0", bdia: "34±1.0", ofc: "58±3.0", img: "025PRG0050.png" },
+  { id: 11, code: "025PRG0060", name: "025PRG0060", category: "pharma", wt: "10±0.5", ht: "92±1.0", bdia: "36±1.0", ofc: "71±3.0", img: "025PRG0060.png" },
+  { id: 12, code: "025PRC0060", name: "025PRC0060", category: "pharma", wt: "13±1.0", ht: "97±1.0", bdia: "39±1.0", ofc: "81±4.0", img: "025PRC0060.png" },
+  { id: 13, code: "022PDG0060", name: "022PDG0060", category: "pharma", wt: "10.5±0.8", ht: "92±1.0", bdia: "36±1.0", ofc: "68±3.0", img: "022PDG0060.png" },
+  { id: 14, code: "022PDS0060", name: "022PDS0060", category: "pharma", wt: "10±0.8", ht: "94.5±1.0", bdia: "36.8±1.0", ofc: "73±3.0", img: "022PDS0060.png" },
+  { id: 15, code: "025PDG0070", name: "025PDG0070", category: "pharma", wt: "10±0.5", ht: "91±1.0", bdia: "42±1.0", ofc: "85±3.0", img: "025PDG0070.png" },
+  { id: 16, code: "025GPL0100", name: "025GPL0100", category: "pharma", wt: "13±1.0", ht: "108±1.0", bdia: "43.6±1.0", ofc: "120±3.5", img: "025GPL0100.png" },
+  { id: 17, code: "025CSP0100", name: "025CSP0100", category: "pharma", wt: "13±1.0", ht: "107±1.0", bdia: "43.6±1.0", ofc: "120±3.5", img: "025CSP0100.png" },
+  { id: 18, code: "025PRG0100", name: "025PRG0100", category: "pharma", wt: "12.5±0.5", ht: "107±1.0", bdia: "43.6±1.0", ofc: "120±3.5", img: "025PRG0100.png" },
+  { id: 19, code: "022PDG0100", name: "022PDG0100", category: "pharma", wt: "13±0.8", ht: "108±1.0", bdia: "45±1.0", ofc: "122±3.5", img: "022PDG0100.png" },
+  { id: 20, code: "025PRH0100", name: "025PRH0100 (Safi)", category: "pharma", wt: "16±1.0", ht: "120.5±1.2", bdia: "42.6±1.2", ofc: "116±4.0", img: "025PRH0100.png" },
+  { id: 21, code: "022PDS0100", name: "022PDS0100", category: "pharma", wt: "12±1.0", ht: "110±1.0", bdia: "43.7±1.5", ofc: "121±3.5", img: "022PDS0100.png" },
+  { id: 22, code: "025PBG0100", name: "025PBG0100", category: "pharma", wt: "12.5±0.5", ht: "128±1.0", bdia: "46.2±1.0", ofc: "129±3.5", img: "025PBG0100.png" },
+  { id: 23, code: "025PMB0100", name: "025PMB0100", category: "pharma", wt: "12.5±0.5", ht: "125.2±1.0", bdia: "44.8±1.0", ofc: "129±3.5", img: "025PMB0100.png" },
+  { id: 24, code: "025PDG0110", name: "025PDG0110", category: "pharma", wt: "12.5±0.5", ht: "107±1.0", bdia: "45±1.0", ofc: "122±3.0", img: "025PDG0110.png" },
+  { id: 25, code: "025PRC0120", name: "025PRC0120", category: "pharma", wt: "15±1.0", ht: "114±1.0", bdia: "46±1.0", ofc: "144±4.0", img: "025PRC0120.png" },
+  { id: 26, code: "025PRG0120", name: "025PRG0120", category: "pharma", wt: "13±1.0", ht: "114±1.0", bdia: "46±1.0", ofc: "144±4.0", img: "025PRG0120.png" },
+  { id: 27, code: "025PFW0120", name: "025PFW0120", category: "pharma", wt: "18±0.5", ht: "130±1.0", bdia: "54±1.2", ofc: "130±5.0", img: "025PFW0120.png" },
+  { id: 28, code: "025PFP0135", name: "025PFP0135", category: "pharma", wt: "16±0.5", ht: "138±1.0", bdia: "59±1.0", ofc: "146±4.0", img: "025PFP0135.png" },
+  { id: 29, code: "025PFG0150", name: "025PFG0150", category: "pharma", wt: "16±0.5", ht: "145±1.0", bdia: "57.5±1.0", ofc: "160±4.0", img: "025PFG0150.png" },
+  { id: 30, code: "025PDG0150", name: "025PDG0150", category: "pharma", wt: "16±0.5", ht: "129.5±1.0", bdia: "50.5±1.0", ofc: "184±5.0", img: "025PDG0150.png" },
+  { id: 31, code: "025PRG0170", name: "025PRG0170", category: "pharma", wt: "17±0.5", ht: "123.8±1.0", bdia: "52±1.2", ofc: "196±4.0", img: "025PRG0170.png" },
+  { id: 32, code: "025PRG0180", name: "025PRG0180", category: "pharma", wt: "24±1.0", ht: "127.3±1.0", bdia: "52±1.2", ofc: "210±4.0", img: "025PRG0180.png" },
+  { id: 33, code: "025PRG0200", name: "025PRG0200", category: "pharma", wt: "18±0.5", ht: "134±1.0", bdia: "55±1.2", ofc: "240±4.0", img: "025PRG0200.png" },
+  { id: 34, code: "025PBG0200", name: "025PBG0200", category: "pharma", wt: "18±0.5", ht: "153.2±1.2", bdia: "58±1.2", ofc: "235±4.0", img: "025PBG0200.png" },
+  { id: 35, code: "025PCR0200", name: "025PCR0200", category: "pharma", wt: "21±1.0", ht: "146.5±1.2", bdia: "51.8±1.2", ofc: "237±4.0", img: "025PCR0200.png" },
+  { id: 36, code: "025PDG0200", name: "025PDG0200", category: "pharma", wt: "20±1.0", ht: "136.5±1.0", bdia: "55±1.2", ofc: "245±4.0", img: "025PDG0200.png" },
+  { id: 37, code: "025PFG0200", name: "025PFG0200", category: "pharma", wt: "24±1.0", ht: "173±1.2", bdia: "55.6±1.2", ofc: "222±4.0", img: "025PFG0200.png" },
+  { id: 38, code: "025PFS0200", name: "025PFS0200 (Sachi Saheli)", category: "pharma", wt: "33.5±1.0", ht: "175±1.2", bdia: "57±1.2", ofc: "238±4.0", img: "025PFS0200.png" },
+  { id: 39, code: "025PFW0200", name: "025PFW0200 (Wheezal)", category: "pharma", wt: "24±1.0", ht: "160±1.2", bdia: "65.5±1.2", ofc: "225±7.0", img: "025PFW0200.png" },
+  { id: 40, code: "025PMB0200", name: "025PMB0200", category: "pharma", wt: "18±0.5", ht: "182±1.2", bdia: "55±1.2", ofc: "260±4.0", img: "025PMB0200.png" },
+  { id: 41, code: "025PRA0200", name: "025PRA0200", category: "pharma", wt: "19.5±1.0", ht: "135.0-135.50", bdia: "55±0.50", ofc: "248±5.0", img: "025PRA0200.png" },
+  { id: 42, code: "025PRH0200", name: "025PRH0200 (Safi)", category: "pharma", wt: "23±1.0", ht: "150.5±1.5", bdia: "52±1.5", ofc: "222±6.0", img: "025PRH0200.png" },
+  { id: 43, code: "025PBG0220", name: "025PBG0220", category: "pharma", wt: "18±0.5", ht: "156.2±1.2", bdia: "57±1.2", ofc: "240±4.0", img: "025PBG0220.png" },
+  { id: 44, code: "025PRA0225", name: "025PRA0225 (Hemfer)", category: "pharma", wt: "22±1.0", ht: "173±1.5", bdia: "53.05±0.5", ofc: "257±5.0", img: "025PRA0225.png" },
+  { id: 45, code: "038PRP0250", name: "038PRP0250", category: "pharma", wt: "22±1.0", ht: "155±2.0", bdia: "54±1.0", ofc: "265±10", img: "038PRP0250.png" },
+  { id: 46, code: "025PDG0300", name: "025PDG0300", category: "pharma", wt: "24±1.0", ht: "184±1.2", bdia: "54.7±1.2", ofc: "330±5.0", img: "025PDG0300.png" },
+  { id: 47, code: "025PRG0400", name: "025PRG0400", category: "pharma", wt: "33.5±1.0", ht: "170.5±1.2", bdia: "62.5±1.2", ofc: "410±5.0", img: "025PRG0400.png" },
+  { id: 48, code: "025PRG0450", name: "025PRG0450", category: "pharma", wt: "34±1.0", ht: "167.2±1.2", bdia: "71.9±1.2", ofc: "520±6.0", img: "025PRG0450.png" },
+  { id: 49, code: "025PDG0460", name: "025PDG0460", category: "pharma", wt: "33.5±1.0", ht: "190±1.2", bdia: "68.6±1.2", ofc: "525±6.0", img: "025PDG0460.png" },
+  { id: 50, code: "028PFW0500", name: "028PFW0500 (Wheezal)", category: "pharma", wt: "40±1.0", ht: "210.5±1.2", bdia: "88±1.2", ofc: "545±8.0", img: "028PFW0500.png" },
+  { id: 51, code: "025PRG0500", name: "025PRG0500", category: "pharma", wt: "33.5±1.0", ht: "184±1.2", bdia: "68±1.2", ofc: "543±8.0", img: "025PRG0500.png" },
+  { id: 52, code: "028PRH0500", name: "028PRH0500 (Safi)", category: "pharma", wt: "34±2.0", ht: "200±1.5", bdia: "69±1.5", ofc: "525±8.0", img: "028PRH0500.png" },
+  { id: 53, code: "028PDG0680", name: "028PDG0680", category: "pharma", wt: "40±1.0", ht: "209.5±1.2", bdia: "76±1.2", ofc: "720±8.0", img: "028PDG0680.png" },
+  { id: 54, code: "028PRG1000", name: "028PRG1000", category: "pharma", wt: "40±1.0", ht: "236±1.2", bdia: "82.5±1.0", ofc: "1007±15", img: "028PRG1000.png" },
 
   // ─── FMCG CONTAINERS ───
-  { id: 15, name: "PET Wide-Mouth Jar", category: "fmcg", material: "PET", size: 100, unit: "ml", industry: "fmcg", color: "transparent", weight: 10, neck: 53, type: "jar", features: ["Food Grade", "Recyclable", "Wide Mouth", "Stackable"], description: "Transparent PET jar with 53mm wide mouth for pickles, jams, sauces, and spreads." },
-  { id: 16, name: "PET Wide-Mouth Jar", category: "fmcg", material: "PET", size: 250, unit: "ml", industry: "fmcg", color: "transparent", weight: 16, neck: 63, type: "jar", features: ["Food Grade", "Recyclable", "Wide Mouth", "High Clarity"], description: "250ml PET jar with excellent clarity for retail food product display and packaging." },
-  { id: 17, name: "PET Wide-Mouth Jar", category: "fmcg", material: "PET", size: 500, unit: "ml", industry: "fmcg", color: "transparent", weight: 25, neck: 83, type: "jar", features: ["Food Grade", "Recyclable", "Wide Mouth", "Bulk Size"], description: "500ml PET jar for bulk food products, protein powders, and household items." },
-  { id: 18, name: "PET Round Jar", category: "fmcg", material: "PET", size: 1000, unit: "ml", industry: "fmcg", color: "transparent", weight: 35, neck: 83, type: "jar", features: ["Food Grade", "Recyclable", "Wide Mouth", "Family Size"], description: "1-litre PET jar for family-size food products, snacks, and bulk retail packaging." },
-  { id: 19, name: "HDPE Bottle", category: "fmcg", material: "HDPE", size: 200, unit: "ml", industry: "fmcg", color: "white", weight: 14, neck: 28, type: "bottle", features: ["Food Grade", "Recyclable", "Chemical Resistant", "Lightweight"], description: "HDPE bottle for household cleaners, personal care products, and liquid consumer goods." },
-  { id: 20, name: "PP Container", category: "fmcg", material: "PP", size: 250, unit: "ml", industry: "fmcg", color: "transparent", weight: 12, neck: 53, type: "jar", features: ["Microwave Safe", "Food Grade", "Recyclable", "Impact Resistant"], description: "PP container suitable for hot-fill and microwave applications. Ideal for ready-to-eat food." },
+  { id: 55, code: "000PSS0000", name: "000PSS0000 Base", category: "fmcg", wt: "73±2.0", ht: "79±2.0", bdia: "208±2", ofc: "N.A", img: "000PSS0000.png" },
+  { id: 56, code: "022FSG0025", name: "022FSG0025", category: "fmcg", wt: "5.0±0.5", ht: "52.3±0.80", bdia: "28.4±0.80", ofc: "25±3.0", img: "022FSG0025.png" },
+  { id: 57, code: "025FSG0045", name: "025FSG0045", category: "fmcg", wt: "7.5±0.5", ht: "65±0.80", bdia: "35±0.80", ofc: "45±3.0", img: "025FSG0045.png" },
+  { id: 58, code: "048FRT0100", name: "048FRT0100", category: "fmcg", wt: "19±2.0", ht: "101±0.90", bdia: "58.20±2.0", ofc: "190±10", img: "048FRT0100.png" },
+  { id: 59, code: "032FRA0180", name: "032FRA0180", category: "fmcg", wt: "13.3±0.8", ht: "136±1.0", bdia: "52.0±1.2", ofc: "211±4.0", img: "032FRA0180.png" },
+  { id: 60, code: "053FRT0200", name: "053FRT0200", category: "fmcg", wt: "25±1.0", ht: "141±1.2", bdia: "70±1.0", ofc: "420±8.0", img: "053FRT0200.png" },
+  { id: 61, code: "056FOG0200", name: "056FOG0200", category: "fmcg", wt: "26±1.0", ht: "143.8±1.0", bdia: "74±1.1", ofc: "477±11", img: "056FOG0200.png" },
+  { id: 62, code: "053FSG0200", name: "053FSG0200", category: "fmcg", wt: "21±1.0", ht: "120±1.0", bdia: "67.9±1.2", ofc: "407±11", img: "053FSG0200.png" },
+  { id: 63, code: "028FRA0200", name: "028FRA0200", category: "fmcg", wt: "16.4±1.0", ht: "165±1.2", bdia: "47±0.6", ofc: "220±4.0", img: "028FRA0200.png" },
+  { id: 64, code: "038FRK0200", name: "038FRK0200", category: "fmcg", wt: "14.5±0.8", ht: "143±1.0", bdia: "52.0±1.1", ofc: "222±4.0", img: "038FRK0200.png" },
+  { id: 65, code: "038FRG0200", name: "038FRG0200", category: "fmcg", wt: "14.5±0.8", ht: "136.5±1.0", bdia: "51.5±1.1", ofc: "212±4.0", img: "038FRG0200.png" },
+  { id: 66, code: "056FSG0250", name: "056FSG0250", category: "fmcg", wt: "20±1.0", ht: "86±1.0", bdia: "60.8±1.0", ofc: "235±8.0", img: "056FSG0250.png" },
+  { id: 67, code: "053FRP0250", name: "053FRP0250", category: "fmcg", wt: "25±1.0", ht: "146±1.0", bdia: "79±1.0", ofc: "560±10", img: "053FRP0250.png" },
+  { id: 68, code: "053FSH0260", name: "053FSH0260", category: "fmcg", wt: "21±1.0", ht: "145±1.0", bdia: "67.9±1.2", ofc: "500±10", img: "053FSH0260.png" },
+  { id: 69, code: "062FRT0300", name: "062FRT0300", category: "fmcg", wt: "53±3.0", ht: "152.9±2.6", bdia: "79.1±1.1", ofc: "510±10", img: "062FRT0300.png" },
+  { id: 70, code: "083FOG0450", name: "083FOG0450", category: "fmcg", wt: "45±2.0", ht: "179.8±1.2", bdia: "100±1.1", ofc: "996±15", img: "083FOG0450.png" },
+  { id: 71, code: "083FOG0500", name: "083FOG0500", category: "fmcg", wt: "47±2.0", ht: "189.8±1.2", bdia: "103.26±1.3", ofc: "1168±20", img: "083FOG0500.png" },
+  { id: 72, code: "083FSG0500", name: "083FSG0500", category: "fmcg", wt: "35±1.0", ht: "153±1.0", bdia: "83.5±1.2", ofc: "859±15", img: "083FSG0500.png" },
+  { id: 73, code: "083FSH0500", name: "083FSH0500", category: "fmcg", wt: "35±1.0", ht: "152±1.0", bdia: "86.3±1.2", ofc: "910±15", img: "083FSH0500.png" },
+  { id: 74, code: "056FSG0500", name: "056FSG0500", category: "fmcg", wt: "26±1.0", ht: "113.6±1", bdia: "79.5±1.2", ofc: "424±10", img: "056FSG0500.png" },
+  { id: 75, code: "083FDG0500", name: "083FDG0500", category: "fmcg", wt: "55±2.0", ht: "182±1.2", bdia: "100±1.0", ofc: "1165±20", img: "083FDG0500.png" },
+  { id: 76, code: "083FRP0500", name: "083FRP0500", category: "fmcg", wt: "50±2.0", ht: "183±2.0", bdia: "97±1.5", ofc: "1110±20", img: "083FRP0500.png" },
+  { id: 77, code: "074FRT0650", name: "074FRT0650", category: "fmcg", wt: "40±1.0", ht: "146±1.0", bdia: "84±1.0", ofc: "638±8.0", img: "074FRT0650.png" },
+  { id: 78, code: "083FRG0700", name: "083FRG0700", category: "fmcg", wt: "55±2.0", ht: "122.8±1.0", bdia: "94.5±1.0", ofc: "730±10", img: "083FRG0700.png" },
+  { id: 79, code: "074FRT0750", name: "074FRT0750", category: "fmcg", wt: "40±1.0", ht: "156.5±1.2", bdia: "87±1.1", ofc: "751±8.0", img: "074FRT0750.png" },
+  { id: 80, code: "083FSH1000", name: "083FSH1000", category: "fmcg", wt: "50±2.0", ht: "225±2.0", bdia: "107.4±1.5", ofc: "1810±50", img: "083FSH1000.png" },
+  { id: 81, code: "083FRG1000", name: "083FRG1000", category: "fmcg", wt: "55±2.0", ht: "157.5±1.2", bdia: "103±1.0", ofc: "1120±20", img: "083FRG1000.png" },
+  { id: 82, code: "083FSP1000", name: "083FSP1000", category: "fmcg", wt: "45±1.0", ht: "113±1.0", bdia: "99±1.2", ofc: "815±10", img: "083FSP1000.png" },
+  { id: 83, code: "083FRT1200", name: "083FRT1200", category: "fmcg", wt: "68±1.0", ht: "188±1.2", bdia: "101±1.0", ofc: "1200±15", img: "083FRT1200.png" },
+  { id: 84, code: "083FRZ1300", name: "083FRZ1300", category: "fmcg", wt: "73±2.0", ht: "196±1.5", bdia: "103.8±1.2", ofc: "1300±15", img: "083FRZ1300.png" },
+  { id: 85, code: "FOS1400",    name: "FOS1400",    category: "fmcg", wt: "91±3.0", ht: "173±2.0", bdia: "121.42±1.5", ofc: "1440±40", img: "FOS1400.png" },
+  { id: 86, code: "083FRG1700", name: "083FRG1700", category: "fmcg", wt: "55±2.0", ht: "194.5±1.2", bdia: "113.5±1.0", ofc: "1740±20", img: "083FRG1700.png" },
+  { id: 87, code: "083FSG1800", name: "083FSG1800", category: "fmcg", wt: "55±2.0", ht: "186±1.2", bdia: "113±1.0", ofc: "1800±40", img: "083FSG1800.png" },
+  { id: 88, code: "083FRC1800", name: "083FRC1800", category: "fmcg", wt: "35±1.0", ht: "213±1.5", bdia: "115.5±1.2", ofc: "1880±40", img: "083FRC1800.png" },
+  { id: 89, code: "083FSH2000", name: "083FSH2000", category: "fmcg", wt: "73±2.0", ht: "270±2.0", bdia: "130±1.5", ofc: "3250±65", img: "083FSH2000.png" },
+  { id: 90, code: "083FRP2000", name: "083FRP2000", category: "fmcg", wt: "67±2.0", ht: "229±2.0", bdia: "120±1.5", ofc: "2050±50", img: "083FRP2000.png" },
+  { id: 91, code: "083FRG2300", name: "083FRG2300", category: "fmcg", wt: "55±2.0", ht: "224±2.0", bdia: "123±1.0", ofc: "2300±40", img: "083FRG2300.png" },
+  { id: 92, code: "100FRC2800", name: "100FRC2800", category: "fmcg", wt: "65±2.0", ht: "232±1.2", bdia: "2871±25", ofc: "222±4.0", img: "100FRC2800.png" },
 
   // ─── COSMETIC CONTAINERS ───
-  { id: 21, name: "PET Sprayer Bottle", category: "cosmetic", material: "PET", size: 50, unit: "ml", industry: "cosmetic", color: "transparent", weight: 8, neck: 20, type: "sprayer", features: ["Fine Mist Spray", "Premium Finish", "Recyclable", "Travel Size"], description: "Elegant 50ml PET sprayer bottle for perfumes, facial mists, and hair care products." },
-  { id: 22, name: "PET Pump Bottle", category: "cosmetic", material: "PET", size: 100, unit: "ml", industry: "cosmetic", color: "transparent", weight: 12, neck: 24, type: "pump", features: ["Smooth Dispensing", "Premium Finish", "Recyclable", "Salon Grade"], description: "100ml PET bottle with pump dispenser for lotions, serums, and liquid soaps." },
-  { id: 23, name: "PET Pump Bottle", category: "cosmetic", material: "PET", size: 200, unit: "ml", industry: "cosmetic", color: "transparent", weight: 16, neck: 24, type: "pump", features: ["Smooth Dispensing", "Premium Finish", "Recyclable", "Retail Ready"], description: "200ml PET pump bottle for shampoos, conditioners, body wash, and skincare products." },
-  { id: 24, name: "PET Cream Jar", category: "cosmetic", material: "PET", size: 50, unit: "ml", industry: "cosmetic", color: "transparent", weight: 10, neck: 53, type: "jar", features: ["Wide Mouth", "Premium Finish", "Recyclable", "Airtight Seal"], description: "Elegant PET cream jar for moisturizers, night creams, and premium skincare products." },
-  { id: 25, name: "PP Cosmetic Jar", category: "cosmetic", material: "PP", size: 100, unit: "ml", industry: "cosmetic", color: "white", weight: 12, neck: 53, type: "jar", features: ["Impact Resistant", "Premium Finish", "Recyclable", "Frosted Option"], description: "PP cosmetic jar with premium finish for body butters, hair masks, and beauty products." },
+  { id: 93,  code: "020COB0019", name: "020COB0019", category: "cosmetic", wt: "4.8±0.5", ht: "56±0.9", bdia: "36±0.6", ofc: "27±1.5", img: "020COB0019.png" },
+  { id: 94,  code: "020COG0020", name: "020COG0020", category: "cosmetic", wt: "7.0±0.5", ht: "80.5±0.6", bdia: "39±0.5", ofc: "50±3.0", img: "020COG0020.png" },
+  { id: 95,  code: "020CRB0025", name: "020CRB0025", category: "cosmetic", wt: "9.2±0.4", ht: "64±1.0", bdia: "32.4±1.0", ofc: "28±3.0", img: "020CRB0025.png" },
+  { id: 96,  code: "020COO0030", name: "020COO0030", category: "cosmetic", wt: "9.2±0.4", ht: "99±1.0", bdia: "37.5±1.0", ofc: "40±3.0", img: "020COO0030.png" },
+  { id: 97,  code: "020COK0030", name: "020COK0030", category: "cosmetic", wt: "9.0±0.5", ht: "85±0.9", bdia: "35.55±0.8", ofc: "37±2.0", img: "020COK0030.png" },
+  { id: 98,  code: "020COG0030", name: "020COG0030", category: "cosmetic", wt: "7.0±0.5", ht: "102.6±1.0", bdia: "37.6±0.5", ofc: "65±6.0", img: "020COG0030.png" },
+  { id: 99,  code: "020COP0035", name: "020COP0035", category: "cosmetic", wt: "13±0.8", ht: "85±1.0", bdia: "37±1.0", ofc: "38±2.5", img: "020COP0035.png" },
+  { id: 100, code: "020COK0040", name: "020COK0040", category: "cosmetic", wt: "9.0±0.5", ht: "93±1.0", bdia: "39.5±1.0", ofc: "48±3.0", img: "020COK0040.png" },
+  { id: 101, code: "020CRG0050", name: "020CRG0050", category: "cosmetic", wt: "13±0.8", ht: "89.3±1.0", bdia: "32±1.0", ofc: "54±3.0", img: "020CRG0050.png" },
+  { id: 102, code: "020CSG0050", name: "020CSG0050", category: "cosmetic", wt: "13±0.8", ht: "85.2±1.0", bdia: "30.2±1.0", ofc: "56±3.0", img: "020CSG0050.png" },
+  { id: 103, code: "020CST0050", name: "020CST0050", category: "cosmetic", wt: "13±0.8", ht: "95.5±1.0", bdia: "29.7±1.0", ofc: "57±3.0", img: "020CST0050.png" },
+  { id: 104, code: "020CSZ0050", name: "020CSZ0050", category: "cosmetic", wt: "11.5±0.8", ht: "90±1.0", bdia: "29.7±1.0", ofc: "57±3.0", img: "020CSZ0050.png" },
+  { id: 105, code: "020COK0050", name: "020COK0050", category: "cosmetic", wt: "9.5±0.5", ht: "101.17±0.9", bdia: "41.8±0.8", ofc: "58±2.8", img: "020COK0050.png" },
+  { id: 106, code: "025CFH0050", name: "025CFH0050", category: "cosmetic", wt: "10±0.5", ht: "92±1.0", bdia: "40±1.0", ofc: "63±3.0", img: "025CFH0050.png" },
+  { id: 107, code: "020CFG0050", name: "020CFG0050", category: "cosmetic", wt: "9.2±0.40", ht: "107±1.0", bdia: "39±1.0", ofc: "60±3.0", img: "020CFG0050.png" },
+  { id: 108, code: "025CFK0050", name: "025CFK0050", category: "cosmetic", wt: "10±0.5", ht: "103±1.0", bdia: "36.5±1.0", ofc: "60±3.0", img: "025CFK0050.png" },
+  { id: 109, code: "022CFR0050", name: "022CFR0050", category: "cosmetic", wt: "10±0.5", ht: "99±1.0", bdia: "47±1.0", ofc: "53±3.0", img: "022CFR0050.png" },
+  { id: 110, code: "020CFS0050", name: "020CFS0050", category: "cosmetic", wt: "9.2±0.4", ht: "105±1.0", bdia: "40±1.0", ofc: "68±3.0", img: "020CFS0050.png" },
+  { id: 111, code: "020CDS0050", name: "020CDS0050", category: "cosmetic", wt: "9.2±0.4", ht: "96±1.0", bdia: "33.6±1.0", ofc: "60±3.0", img: "020CDS0050.png" },
+  { id: 112, code: "020COG0050", name: "020COG0050", category: "cosmetic", wt: "9.5±0.5", ht: "116±1.0", bdia: "55±0.5", ofc: "130.5±5.0", img: "020COG0050.png" },
+  { id: 113, code: "020CFO0050", name: "020CFO0050", category: "cosmetic", wt: "9.2±0.4", ht: "98±1.0", bdia: "43.5±1.0", ofc: "60±3.0", img: "020CFO0050.png" },
+  { id: 114, code: "020CFA0050", name: "020CFA0050", category: "cosmetic", wt: "9.2±0.40", ht: "106±1.0", bdia: "36±1.0", ofc: "54±3.0", img: "020CFA0050.png" },
+  { id: 115, code: "020CRB0050", name: "020CRB0050", category: "cosmetic", wt: "9.2±0.4", ht: "90±1.0", bdia: "34.5±1.0", ofc: "57±3.0", img: "020CRB0050.png" },
+  { id: 116, code: "020COK0060", name: "020COK0060", category: "cosmetic", wt: "9.5±0.5", ht: "106.57±1.0", bdia: "44.71±1.0", ofc: "70±3.5", img: "020COK0060.png" },
+  { id: 117, code: "020COO0060", name: "020COO0060", category: "cosmetic", wt: "13±0.8", ht: "112.5±1.0", bdia: "45.5±0.5", ofc: "70±4.0", img: "020COO0060.png" },
+  { id: 118, code: "025CFH0100", name: "025CFH0100", category: "cosmetic", wt: "13±1.0", ht: "135±1.0", bdia: "45±1.0", ofc: "115±3.0", img: "025CFH0100.png" },
+  { id: 119, code: "020CST0100", name: "020CST0100", category: "cosmetic", wt: "13±0.8", ht: "122.6±1.0", bdia: "35.5±1.0", ofc: "115±4.0", img: "020CST0100.png" },
+  { id: 120, code: "020COK0100", name: "020COK0100", category: "cosmetic", wt: "13±0.8", ht: "129.8±1.0", bdia: "51.92±1.1", ofc: "110±4.0", img: "020COK0100.png" },
+  { id: 121, code: "025CFK0100", name: "025CFK0100", category: "cosmetic", wt: "13±0.8", ht: "129±1.0", bdia: "43.6±1.0", ofc: "109±3.0", img: "025CFK0100.png" },
+  { id: 122, code: "022CFR0100", name: "022CFR0100", category: "cosmetic", wt: "13±1.0", ht: "133±1.0", bdia: "59.5±1.0", ofc: "105±3.0", img: "022CFR0100.png" },
+  { id: 123, code: "020CSZ0100", name: "020CSZ0100", category: "cosmetic", wt: "19±1.0", ht: "117.6±1.0", bdia: "35.5±1.0", ofc: "109±4.0", img: "020CSZ0100.png" },
+  { id: 124, code: "020CFG0100", name: "020CFG0100", category: "cosmetic", wt: "13±0.8", ht: "137.5±1.0", bdia: "45±1.0", ofc: "115±4.0", img: "020CFG0100.png" },
+  { id: 125, code: "020CFS0100", name: "020CFS0100", category: "cosmetic", wt: "13±0.8", ht: "139.5±1.2", bdia: "46±1.0", ofc: "127±3.0", img: "020CFS0100.png" },
+  { id: 126, code: "020CFC0100", name: "020CFC0100", category: "cosmetic", wt: "13±0.8", ht: "138±1.0", bdia: "45±0.8", ofc: "112±4.0", img: "020CFC0100.png" },
+  { id: 127, code: "025CFT0100", name: "025CFT0100", category: "cosmetic", wt: "20±1.0", ht: "136±1.0", bdia: "44±1.0", ofc: "106±3.0", img: "025CFT0100.png" },
+  { id: 128, code: "020CFA0100", name: "020CFA0100", category: "cosmetic", wt: "13±0.8", ht: "134.5±1.0", bdia: "46±1.0", ofc: "104±3.0", img: "020CFA0100.png" },
+  { id: 129, code: "020CDH0100", name: "020CDH0100", category: "cosmetic", wt: "13±0.8", ht: "117.8±1.0", bdia: "38±1.0", ofc: "107±3.5", img: "020CDH0100.png" },
+  { id: 130, code: "020CDG0100", name: "020CDG0100", category: "cosmetic", wt: "13±0.8", ht: "117.8±1.0", bdia: "38±1.0", ofc: "107±3.5", img: "020CDG0100.png" },
+  { id: 131, code: "020CDS0100", name: "020CDS0100", category: "cosmetic", wt: "13±0.8", ht: "127.5±1.0", bdia: "38±1.0", ofc: "110±3.5", img: "020CDS0100.png" },
+  { id: 132, code: "028PSG0100", name: "028PSG0100", category: "cosmetic", wt: "30±1.0", ht: "159±0.8", bdia: "45.1±0.7", ofc: "250±5.0", img: "028PSG0100.png" },
+  { id: 133, code: "024COS0100", name: "024COS0100", category: "cosmetic", wt: "17±0.5", ht: "139.9±1.2", bdia: "57.2±0.5", ofc: "130.3±5.0", img: "024COS0100.png" },
+  { id: 134, code: "020CRB0100", name: "020CRB0100", category: "cosmetic", wt: "13±0.8", ht: "119.5±1.0", bdia: "40.3±1.0", ofc: "116±4.0", img: "020CRB0100.png" },
+  { id: 135, code: "020CFE0100", name: "020CFE0100", category: "cosmetic", wt: "13±0.8", ht: "140.5±1.0", bdia: "47±1.0", ofc: "112±3.0", img: "020CFE0100.png" },
+  { id: 136, code: "020CRH0100", name: "020CRH0100", category: "cosmetic", wt: "13±0.8", ht: "110.5±1.0", bdia: "40.3±1.0", ofc: "112±4.0", img: "020CRH0100.png" },
+  { id: 137, code: "020CFO0100", name: "020CFO0100", category: "cosmetic", wt: "13±0.8", ht: "127±1.0", bdia: "50.2±1.0", ofc: "110±4.0", img: "020CFO0100.png" },
+  { id: 138, code: "020CFE0120", name: "020CFE0120", category: "cosmetic", wt: "13±0.8", ht: "145±1.2", bdia: "49.5±1.0", ofc: "127±3.0", img: "020CFE0120.png" },
+  { id: 139, code: "025CFB0120", name: "025CFB0120", category: "cosmetic", wt: "18±1.0", ht: "116±1.0", bdia: "52±1.0", ofc: "126±4.0", img: "025CFB0120.png" },
+  { id: 140, code: "020CFD0120", name: "020CFD0120", category: "cosmetic", wt: "13±0.8", ht: "125±1.0", bdia: "65±1.0", ofc: "140±4.0", img: "020CFD0120.png" },
+  { id: 141, code: "020COK0120", name: "020COK0120", category: "cosmetic", wt: "13±0.8", ht: "131.5±1.0", bdia: "56.5±1.2", ofc: "131±5.0", img: "020COK0120.png" },
+  { id: 142, code: "020COO0120", name: "020COO0120", category: "cosmetic", wt: "13±0.8", ht: "131.5±1.0", bdia: "56.5±1.2", ofc: "131±5.0", img: "020COO0120.png" },
+  { id: 143, code: "020COP0120", name: "020COP0120", category: "cosmetic", wt: "13.5±0.8", ht: "132±1.0", bdia: "62±1.1", ofc: "125±5.0", img: "020COP0120.png" },
+  { id: 144, code: "025CFH0200", name: "025CFH0200", category: "cosmetic", wt: "18±0.5", ht: "149±1.0", bdia: "59±1.0", ofc: "214±6.0", img: "025CFH0200.png" },
+  { id: 145, code: "025CFK0200", name: "025CFK0200", category: "cosmetic", wt: "20±1.0", ht: "167±1.0", bdia: "58±1.0", ofc: "212±4.0", img: "025CFK0200.png" },
+  { id: 146, code: "028CFR0200", name: "028CFR0200", category: "cosmetic", wt: "23.5±1.0", ht: "163.5±1.2", bdia: "76.9±1.2", ofc: "201±6.0", img: "028CFR0200.png" },
+  { id: 147, code: "024CSZ0200", name: "024CSZ0200", category: "cosmetic", wt: "24±1.0", ht: "153.2±1.2", bdia: "42±1.0", ofc: "210±6.0", img: "024CSZ0200.png" },
+  { id: 148, code: "024CFD0200", name: "024CFD0200", category: "cosmetic", wt: "24±1.0", ht: "142±1.0", bdia: "76±1.0", ofc: "220±4.0", img: "024CFD0200.png" },
+  { id: 149, code: "025CFT0200", name: "025CFT0200", category: "cosmetic", wt: "20±1.0", ht: "159.5±1.0", bdia: "56.5±0.5", ofc: "210±4.0", img: "025CFT0200.png" },
+  { id: 150, code: "025CFL0200", name: "025CFL0200", category: "cosmetic", wt: "20±1.0", ht: "149±1.0", bdia: "58.5±1.0", ofc: "212±4.0", img: "025CFL0200.png" },
+  { id: 151, code: "024CRB0200", name: "024CRB0200", category: "cosmetic", wt: "24±1.0", ht: "148.5±1.2", bdia: "49±1.0", ofc: "222±6.0", img: "024CRB0200.png" },
+  { id: 152, code: "025CFG0200", name: "025CFG0200", category: "cosmetic", wt: "18±0.5", ht: "170±1.2", bdia: "56±1.0", ofc: "224±4.0", img: "025CFG0200.png" },
+  { id: 153, code: "020CDS0200", name: "020CDS0200", category: "cosmetic", wt: "19±1.0", ht: "152±1.2", bdia: "47±1.0", ofc: "210±5.0", img: "020CDS0200.png" },
+  { id: 154, code: "024CRR0300", name: "024CRR0300", category: "cosmetic", wt: "29±1.0", ht: "166±1.0", bdia: "73±1.0", ofc: "330±6.0", img: "024CRR0300.png" },
+  { id: 155, code: "024COK0300", name: "024COK0300", category: "cosmetic", wt: "29±1.0", ht: "169.4±1.2", bdia: "76.5±1.2", ofc: "321±9.0", img: "024COK0300.png" },
+  { id: 156, code: "024COP0300", name: "024COP0300", category: "cosmetic", wt: "29±1.0", ht: "173.3±1.2", bdia: "83±1.1", ofc: "317±9.0", img: "024COP0300.png" },
+  { id: 157, code: "028CFR0300", name: "028CFR0300", category: "cosmetic", wt: "31±1.0", ht: "184.8±1.2", bdia: "88.4±1.2", ofc: "304±4.0", img: "028CFR0300.png" },
+  { id: 158, code: "028CFR0500", name: "028CFR0500", category: "cosmetic", wt: "40±1.0", ht: "201±1.2", bdia: "93±1.2", ofc: "500±6.0", img: "028CFR0500.png" },
+  { id: 159, code: "028CRB0500", name: "028CRB0500", category: "cosmetic", wt: "40±2.0", ht: "190±1.5", bdia: "67.5±1.2", ofc: "545±8.0", img: "028CRB0500.png" },
+  { id: 160, code: "028CRS0500", name: "028CRS0500", category: "cosmetic", wt: "40±1.0", ht: "190±1.2", bdia: "67.5±1.2", ofc: "545±8.0", img: "028CRS0500.png" },
+  { id: 161, code: "028CRH0500", name: "028CRH0500", category: "cosmetic", wt: "45±5.0", ht: "207±1.2", bdia: "64±1.2", ofc: "545±8.0", img: "028CRH0500.png" },
 
   // ─── LIQUOR CONTAINERS ───
-  { id: 26, name: "PET Liquor Bottle", category: "liquor", material: "PET", size: 180, unit: "ml", industry: "liquor", color: "transparent", weight: 15, neck: 28, type: "bottle", features: ["Tamper Evident", "High Shelf Appeal", "Lightweight", "Shatterproof"], description: "180ml PET bottle for single-serve spirits. Shatterproof alternative to glass with high clarity." },
-  { id: 27, name: "PET Liquor Bottle", category: "liquor", material: "PET", size: 375, unit: "ml", industry: "liquor", color: "transparent", weight: 22, neck: 28, type: "bottle", features: ["Tamper Evident", "High Shelf Appeal", "Custom Shape", "Recyclable"], description: "375ml PET liquor bottle with custom design options. Premium appearance with practical durability." },
-  { id: 28, name: "PET Liquor Bottle", category: "liquor", material: "PET", size: 750, unit: "ml", industry: "liquor", color: "transparent", weight: 32, neck: 28, type: "bottle", features: ["Tamper Evident", "High Shelf Appeal", "Full Size", "Lightweight"], description: "Full-size 750ml PET liquor bottle. 60% lighter than glass with excellent shelf presence." },
+  { id: 162, code: "025LCO0090", name: "025LCO0090", category: "liquor", wt: "10±0.5", ht: "105±1.0", bdia: "53±1.0", ofc: "98±3.0", img: "025LCO0090.png" },
+  { id: 163, code: "025LCO0180", name: "025LCO0180", category: "liquor", wt: "10.8+/-0.5", ht: "135.5+/-1.0", bdia: "63+/-1.0", ofc: "188+/-3.0", img: "025LCO0180.png" },
+  { id: 164, code: "025LCO0375", name: "025LCO0375", category: "liquor", wt: "18±1.0", ht: "161±1.0", bdia: "76.3±1.2", ofc: "390±6.0", img: "025LCO0375.png" },
+  { id: 165, code: "030LFK0750", name: "030LFK0750", category: "liquor", wt: "40.5±2.0", ht: "260±1.5", bdia: "84±1.2", ofc: "779±7.0", img: "030LFK0750.png" },
 
   // ─── CAPS & CLOSURES ───
-  { id: 29, name: "Talc Twister Cap", category: "caps", material: "PP", size: 20, unit: "mm", industry: "pharmaceutical", color: "white", weight: 1.25, neck: 20, type: "cap", features: ["Twist-Open", "Tamper Evident", "Precision Fit", "±0.15g Tolerance"], description: "20mm Talc Twister Cap (1.25g ±0.15g) for pharmaceutical syrup bottles. Precise twist-open mechanism." },
-  { id: 30, name: "Flip Top Cap", category: "caps", material: "PP", size: 19, unit: "mm", industry: "pharmaceutical", color: "white", weight: 1.5, neck: 19, type: "cap", features: ["One-Hand Open", "Snap Closure", "Leak Proof", "Child Friendly"], description: "19mm Flip Top Cap for dropper bottles and small pharma containers. Convenient one-hand operation." },
-  { id: 31, name: "Flip Top Cap", category: "caps", material: "PP", size: 24, unit: "mm", industry: "cosmetic", color: "white", weight: 2, neck: 24, type: "cap", features: ["One-Hand Open", "Snap Closure", "Leak Proof", "Premium Finish"], description: "24mm Flip Top Cap for cosmetic and personal care bottles. Smooth snap-closure mechanism." },
-  { id: 32, name: "Screw Cap", category: "caps", material: "PP", size: 53, unit: "mm", industry: "fmcg", color: "white", weight: 5, neck: 53, type: "cap", features: ["Secure Seal", "Wide Mouth", "Tamper Evident", "Reusable"], description: "53mm Screw Cap for wide-mouth jars. Provides secure sealing for food and FMCG products." },
-  { id: 33, name: "Screw Cap", category: "caps", material: "PP", size: 83, unit: "mm", industry: "fmcg", color: "white", weight: 8, neck: 83, type: "cap", features: ["Secure Seal", "Wide Mouth", "Tamper Evident", "Industrial Grade"], description: "83mm Screw Cap for large-mouth containers. Heavy-duty construction for bulk packaging." },
-  { id: 34, name: "Press Top Cap", category: "caps", material: "PP", size: 45, unit: "mm", industry: "cosmetic", color: "white", weight: 4, neck: 45, type: "cap", features: ["Press to Open", "Smooth Action", "Leak Proof", "Elegant Design"], description: "45mm Press Top Cap for cosmetic jars and containers. Elegant press-to-open design." },
+  { id: 166, code: "020CRZ0000", name: "020CRZ0000", category: "caps", wt: "1.25±0.15", size: "20 mm", type: "Talc Twister Cap", img: "020CRZ0000.png" },
+  { id: 167, code: "019CRG0000", name: "019CRG0000", category: "caps", wt: "3.1±0.20", size: "19 mm", type: "Flip Top Cap", img: "019CRG0000.png" },
+  { id: 168, code: "024CRG0000", name: "024CRG0000", category: "caps", wt: "4.25±0.25", size: "24 mm", type: "Flip Top Cap", img: "024CRG0000.png" },
+  { id: 169, code: "019CRB0000", name: "019CRB0000", category: "caps", wt: "2.90±0.50", size: "19 mm", type: "Flip Top Cap", img: "019CRB0000.png" },
+  { id: 170, code: "024CRB0000", name: "024CRB0000", category: "caps", wt: "5.10±0.20", size: "24 mm", type: "Flip Top Cap", img: "024CRB0000.png" },
+  { id: 171, code: "053FRG0000", name: "053FRG0000", category: "caps", wt: "5.0±0.50", size: "53 mm", type: "Screw Cap", img: "053FRG0000.png" },
+  { id: 172, code: "083FRG0000", name: "083FRG0000", category: "caps", wt: "10±1.0", size: "83 mm", type: "Screw Cap", img: "083FRG0000.png" },
+  { id: 173, code: "045PSG0000", name: "045PSG0000", category: "caps", wt: "10±1.0", size: "45 mm", type: "Press Top Cap", img: "045PSG0000.png" },
+  { id: 174, code: "020CON0000", name: "020CON0000", category: "caps", wt: "3.8±0.2", size: "20 mm", type: "Talc Twister Cap", img: "020CON0000.png" },
+  { id: 175, code: "083FRL0000", name: "083FRL0000", category: "caps", wt: "6.0±0.75", size: "83 mm", type: "Press Top Lid", img: "083FRL0000.png" },
+  { id: 176, code: "028CRG0000", name: "028CRG0000", category: "caps", wt: "2.5±0.50", size: "20 mm", type: "Screw Cap", img: "028CRG0000.png" },
+  { id: 177, code: "032FRG0000", name: "032FRG0000", category: "caps", wt: "1.4±0.10", size: "32 mm", type: "Screw Cap", img: "032FRG0000.png" },
+  { id: 178, code: "036FRP0000", name: "036FRP0000", category: "caps", wt: "3.75±0.50", size: "36 mm", type: "Screw Cap", img: "036FRP0000.png" },
+  { id: 179, code: "038FRK0000", name: "038FRK0000", category: "caps", wt: "2.5±0.50", size: "38 mm", type: "Screw Cap", img: "038FRK0000.png" },
+  { id: 180, code: "022PRM0000", name: "022PRM0000", category: "caps", wt: "1.1±0.10", size: "22 mm", type: "Measuring Cup", img: "022PRM0000.png" },
+  { id: 181, code: "074FRG0000", name: "074FRG0000", category: "caps", wt: "7.5±0.5", size: "74 mm", type: "Screw Cap", img: "074FRG0000.png" },
+  { id: 182, code: "048FRT0000", name: "048FRT0000", category: "caps", wt: "3.0±0.5", size: "48 mm", type: "Screw Cap", img: "048FRT0000.png" },
+  { id: 183, code: "062FRT0000", name: "062FRT0000", category: "caps", wt: "5.3±0.5", size: "62 mm", type: "Screw Cap", img: "062FRT0000.png" },
+  { id: 184, code: "053FRH0000", name: "053FRH0000", category: "caps", wt: "4.2±0.5", size: "53 mm", type: "Screw Cap", img: "053FRH0000.png" },
+  { id: 185, code: "083FRH0000", name: "083FRH0000", category: "caps", wt: "11.5±0.8", size: "83 mm", type: "Screw Cap", img: "083FRH0000.png" },
+  { id: 186, code: "000PSS0000_lid", name: "000PSS0000", category: "caps", wt: "40±1.0", size: "L202 W162 mm", type: "Rectangular Lid", img: "000PSS0000_lid.png" },
+  { id: 187, code: "FOS0000",     name: "FOS0000",     category: "caps", wt: "20±2.0", size: "L142 W93 mm", type: "Snap On Lid", img: "FOS0000.png" },
+  { id: 188, code: "100FRG0000", name: "100FRG0000", category: "caps", wt: "17.50±1.0", size: "100 mm", type: "Screw Cap", img: "100FRG0000.png" },
+  { id: 189, code: "020CSB0019", name: "020CSB0019", category: "caps", wt: "2.20±0.10", size: "20 mm", type: "Square Cap", img: "020CSB0019.png" },
 
-  // ─── SPECIALTY PRODUCTS ───
-  { id: 35, name: "HiMax Sanitizer Bottle", category: "specialty", material: "PET", size: 100, unit: "ml", industry: "fmcg", color: "transparent", weight: 10, neck: 24, type: "pump", features: ["Pump Dispenser", "Food Grade", "Recyclable", "Hygienic"], description: "100ml PET sanitizer bottle with pump dispenser. Launched under the HiMax brand." },
-  { id: 36, name: "HiMax Sanitizer Bottle", category: "specialty", material: "PET", size: 500, unit: "ml", industry: "fmcg", color: "transparent", weight: 28, neck: 28, type: "pump", features: ["Pump Dispenser", "Food Grade", "Recyclable", "Institutional Size"], description: "500ml PET sanitizer bottle for institutional and commercial use. HiMax brand." },
-  { id: 37, name: "Sports Water Bottle", category: "specialty", material: "PC", size: 750, unit: "ml", industry: "sports", color: "transparent", weight: 35, neck: 28, type: "bottle", features: ["Impact Resistant", "BPA Free", "Reusable", "Sports Cap"], description: "750ml polycarbonate sports water bottle. Durable, reusable, and designed for active lifestyles. Via Himalayan Polysports." },
+  // ─── SANITIZERS ───
+  { id: 190, code: "SGHM0060LF", name: "SGHM0060LF", category: "sanitizer", wt: "9.2±0.4", ht: "105±1.0", bdia: "40±1.0", ofc: "68±3.0", img: "SGHM0060LF.png" },
+  { id: 191, code: "SGHM0100LF", name: "SGHM0100LF", category: "sanitizer", wt: "13±0.8", ht: "139.5±1.2", bdia: "46±1.0", ofc: "127±3.0", img: "SGHM0100LF.png" },
+  { id: 192, code: "SLHM0500LF", name: "SLHM0500LF", category: "sanitizer", wt: "40±1.0", ht: "190±1.2", bdia: "67.5±1.2", ofc: "545±8.0", img: "SLHM0500LF.png" },
+  { id: 193, code: "SLHM5000LF", name: "SLHM5000LF", category: "sanitizer", wt: "240±10", ht: "285±2.0", bdia: "203±1.5", ofc: "5225±50", img: "SLHM5000LF.png" },
 ];
-
-// ── SVG Product Illustrations ──
-function getProductSVG(type, color) {
-  const colors = {
-    transparent: { fill: '#E8F0FE', stroke: '#2D6DA4', accent: '#B8D4F0' },
-    amber:       { fill: '#FEF3E2', stroke: '#B8860B', accent: '#F5DEB3' },
-    white:       { fill: '#F5F5F5', stroke: '#9CA3AF', accent: '#E5E7EB' },
-    custom:      { fill: '#FAF6EE', stroke: '#B8935A', accent: '#E8DCC8' },
-  };
-  const c = colors[color] || colors.transparent;
-
-  const svgs = {
-    bottle: `<svg viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="30" y="8" width="20" height="14" rx="2" fill="${c.accent}" stroke="${c.stroke}" stroke-width="1.5"/>
-      <rect x="33" y="2" width="14" height="8" rx="2" fill="${c.stroke}" opacity="0.2"/>
-      <path d="M30 22 C30 22, 22 35, 22 50 L22 120 C22 126, 26 130, 32 130 L48 130 C54 130, 58 126, 58 120 L58 50 C58 35, 50 22, 50 22" fill="${c.fill}" stroke="${c.stroke}" stroke-width="1.5"/>
-      <path d="M26 60 L54 60" stroke="${c.accent}" stroke-width="0.8" opacity="0.5"/>
-      <path d="M24 90 L56 90" stroke="${c.accent}" stroke-width="0.8" opacity="0.5"/>
-      <ellipse cx="40" cy="90" rx="12" ry="3" fill="${c.stroke}" opacity="0.04"/>
-    </svg>`,
-    jar: `<svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="24" y="8" width="32" height="10" rx="3" fill="${c.stroke}" opacity="0.15"/>
-      <rect x="20" y="18" width="40" height="85" rx="8" fill="${c.fill}" stroke="${c.stroke}" stroke-width="1.5"/>
-      <path d="M24 45 L56 45" stroke="${c.accent}" stroke-width="0.8" opacity="0.5"/>
-      <path d="M22 70 L58 70" stroke="${c.accent}" stroke-width="0.8" opacity="0.5"/>
-      <rect x="28" y="52" width="24" height="12" rx="2" fill="${c.stroke}" opacity="0.06"/>
-    </svg>`,
-    dropper: `<svg viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M36 2 L36 12 C36 12, 32 14, 32 18 L32 22 L48 22 L48 18 C48 14, 44 12, 44 12 L44 2 Z" fill="${c.stroke}" opacity="0.15"/>
-      <ellipse cx="40" cy="10" rx="6" ry="4" fill="${c.accent}" stroke="${c.stroke}" stroke-width="1"/>
-      <path d="M32 22 C32 22, 24 34, 24 48 L24 110 C24 118, 30 124, 38 124 L42 124 C50 124, 56 118, 56 110 L56 48 C56 34, 48 22, 48 22" fill="${c.fill}" stroke="${c.stroke}" stroke-width="1.5"/>
-      <line x1="40" y1="28" x2="40" y2="60" stroke="${c.stroke}" stroke-width="1" opacity="0.15"/>
-    </svg>`,
-    sprayer: `<svg viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="30" y="18" width="20" height="12" rx="2" fill="${c.accent}" stroke="${c.stroke}" stroke-width="1.5"/>
-      <rect x="44" y="8" width="16" height="8" rx="3" fill="${c.stroke}" opacity="0.2"/>
-      <line x1="52" y1="16" x2="52" y2="22" stroke="${c.stroke}" stroke-width="1.5"/>
-      <path d="M30 30 C30 30, 22 42, 22 55 L22 115 C22 122, 27 127, 34 127 L46 127 C53 127, 58 122, 58 115 L58 55 C58 42, 50 30, 50 30" fill="${c.fill}" stroke="${c.stroke}" stroke-width="1.5"/>
-      <path d="M56 12 L65 8" stroke="${c.stroke}" stroke-width="1" stroke-dasharray="2 2" opacity="0.4"/>
-      <circle cx="67" cy="7" r="2" fill="${c.stroke}" opacity="0.2"/>
-    </svg>`,
-    pump: `<svg viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="37" y="2" width="6" height="20" rx="2" fill="${c.stroke}" opacity="0.25"/>
-      <rect x="33" y="22" width="14" height="6" rx="2" fill="${c.accent}" stroke="${c.stroke}" stroke-width="1"/>
-      <rect x="30" y="28" width="20" height="10" rx="2" fill="${c.accent}" stroke="${c.stroke}" stroke-width="1.2"/>
-      <path d="M30 38 C30 38, 22 48, 22 58 L22 115 C22 122, 27 127, 34 127 L46 127 C53 127, 58 122, 58 115 L58 58 C58 48, 50 38, 50 38" fill="${c.fill}" stroke="${c.stroke}" stroke-width="1.5"/>
-      <path d="M26 75 L54 75" stroke="${c.accent}" stroke-width="0.8" opacity="0.5"/>
-    </svg>`,
-    cap: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="40" cy="55" rx="28" ry="8" fill="${c.stroke}" opacity="0.06"/>
-      <rect x="18" y="20" width="44" height="30" rx="8" fill="${c.fill}" stroke="${c.stroke}" stroke-width="1.5"/>
-      <rect x="22" y="15" width="36" height="8" rx="4" fill="${c.accent}" stroke="${c.stroke}" stroke-width="1.2"/>
-      <path d="M18 35 L62 35" stroke="${c.stroke}" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.25"/>
-      <path d="M26 42 L54 42" stroke="${c.stroke}" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.15"/>
-    </svg>`,
-  };
-  return svgs[type] || svgs.bottle;
-}
-
-// ── State ──
-let activeFilters = { category: [], material: [], industry: [], color: [], sizeRange: 'all' };
-let searchQuery = '';
-let inquiryCart = JSON.parse(localStorage.getItem('hpack_inquiry') || '[]');
-let selectedProduct = null;
-
-// ── DOM Ready ──
-document.addEventListener('DOMContentLoaded', () => {
-  renderProducts();
-  updateCartUI();
-  setupEventListeners();
-  setupNavbar();
-});
-
-// ── Setup Functions ──
-function setupNavbar() {
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links');
-  if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      menuBtn.classList.toggle('active');
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuBtn.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-}
-
-function setupEventListeners() {
-  // Search
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', (e) => {
-    searchQuery = e.target.value.toLowerCase().trim();
-    renderProducts();
-  });
-
-  // Filter checkboxes
-  document.querySelectorAll('.filter-checkbox').forEach(cb => {
-    cb.addEventListener('change', () => {
-      updateFiltersFromUI();
-      renderProducts();
-    });
-  });
-
-  // Size range
-  document.querySelectorAll('input[name="sizeRange"]').forEach(radio => {
-    radio.addEventListener('change', (e) => {
-      activeFilters.sizeRange = e.target.value;
-      renderProducts();
-    });
-  });
-
-  // Clear filters
-  document.getElementById('clearFilters').addEventListener('click', clearFilters);
-
-  // Modal close
-  document.getElementById('modalOverlay').addEventListener('click', (e) => {
-    if (e.target.id === 'modalOverlay') closeModal();
-  });
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-
-  // Close modal on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  // Mobile filter toggle
-  document.getElementById('filterToggle')?.addEventListener('click', () => {
-    document.querySelector('.catalog-sidebar').classList.toggle('active');
-  });
-
-  // Cart actions
-  document.getElementById('cartClear')?.addEventListener('click', () => {
-    inquiryCart = [];
-    saveCart();
-    updateCartUI();
-    renderProducts();
-  });
-}
-
-function updateFiltersFromUI() {
-  activeFilters.category = getCheckedValues('category');
-  activeFilters.material = getCheckedValues('material');
-  activeFilters.industry = getCheckedValues('industry');
-  activeFilters.color = getCheckedValues('color');
-}
-
-function getCheckedValues(group) {
-  return [...document.querySelectorAll(`.filter-checkbox[data-group="${group}"]:checked`)].map(cb => cb.value);
-}
-
-function clearFilters() {
-  document.querySelectorAll('.filter-checkbox').forEach(cb => cb.checked = false);
-  document.querySelector('input[name="sizeRange"][value="all"]').checked = true;
-  document.getElementById('searchInput').value = '';
-  searchQuery = '';
-  activeFilters = { category: [], material: [], industry: [], color: [], sizeRange: 'all' };
-  renderProducts();
-}
-
-// ── Filter Logic ──
-function getFilteredProducts() {
-  return products.filter(p => {
-    if (searchQuery && !matchesSearch(p)) return false;
-    if (activeFilters.category.length && !activeFilters.category.includes(p.category)) return false;
-    if (activeFilters.material.length && !activeFilters.material.includes(p.material)) return false;
-    if (activeFilters.industry.length && !activeFilters.industry.includes(p.industry)) return false;
-    if (activeFilters.color.length && !activeFilters.color.includes(p.color)) return false;
-    if (!matchesSizeRange(p)) return false;
-    return true;
-  });
-}
-
-function matchesSearch(p) {
-  const q = searchQuery;
-  return p.name.toLowerCase().includes(q)
-    || p.category.toLowerCase().includes(q)
-    || p.material.toLowerCase().includes(q)
-    || p.description.toLowerCase().includes(q)
-    || p.features.some(f => f.toLowerCase().includes(q))
-    || `${p.size}${p.unit}`.includes(q)
-    || p.industry.toLowerCase().includes(q);
-}
-
-function matchesSizeRange(p) {
-  if (activeFilters.sizeRange === 'all') return true;
-  if (p.unit === 'mm') return activeFilters.sizeRange === 'small';
-  const s = p.size;
-  switch (activeFilters.sizeRange) {
-    case 'small': return s <= 50;
-    case 'medium': return s > 50 && s <= 200;
-    case 'large': return s > 200 && s <= 500;
-    case 'xlarge': return s > 500;
-    default: return true;
-  }
-}
-
-// ── Render Products ──
-function renderProducts() {
-  const filtered = getFilteredProducts();
-  const grid = document.getElementById('productGrid');
-  const countEl = document.getElementById('productCount');
-  const totalEl = document.getElementById('productTotal');
-  const emptyEl = document.getElementById('emptyState');
-
-  countEl.textContent = filtered.length;
-  totalEl.textContent = products.length;
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '';
-    emptyEl.style.display = 'block';
-    return;
-  }
-
-  emptyEl.style.display = 'none';
-
-  grid.innerHTML = filtered.map((p, i) => {
-    const inCart = inquiryCart.some(item => item.id === p.id);
-    const categoryLabel = { pharma: 'Pharma', fmcg: 'FMCG', cosmetic: 'Cosmetic', liquor: 'Liquor', caps: 'Caps & Closures', specialty: 'Specialty' };
-    return `
-      <div class="product-card reveal active" style="animation-delay:${Math.min(i * 0.05, 0.4)}s">
-        <div class="pc-image" onclick="openModal(${p.id})">
-          ${getProductSVG(p.type, p.color)}
-        </div>
-        <div class="pc-body">
-          <div class="pc-category">${categoryLabel[p.category] || p.category}</div>
-          <h3 class="pc-name" onclick="openModal(${p.id})">${p.name}</h3>
-          <div class="pc-specs">
-            <span class="pc-spec">${p.material}</span>
-            <span class="pc-dot">•</span>
-            <span class="pc-spec">${p.size}${p.unit}</span>
-            <span class="pc-dot">•</span>
-            <span class="pc-spec">${p.weight}g</span>
-          </div>
-          <div class="pc-tags">
-            ${p.features.slice(0, 3).map(f => `<span class="pc-tag">${f}</span>`).join('')}
-          </div>
-          <div class="pc-actions">
-            <button class="pc-btn-details" onclick="openModal(${p.id})">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
-              View Details
-            </button>
-            <button class="pc-btn-inquiry ${inCart ? 'in-cart' : ''}" onclick="toggleInquiry(${p.id})">
-              ${inCart
-                ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Added'
-                : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m-7-7h14"/></svg> Add to Inquiry'}
-            </button>
-          </div>
-        </div>
-      </div>`;
-  }).join('');
-}
-
-// ── Modal ──
-function openModal(id) {
-  selectedProduct = products.find(p => p.id === id);
-  if (!selectedProduct) return;
-  const p = selectedProduct;
-  const inCart = inquiryCart.some(item => item.id === p.id);
-  const categoryLabel = { pharma: 'Pharmaceutical', fmcg: 'FMCG', cosmetic: 'Cosmetic', liquor: 'Liquor & Spirits', caps: 'Caps & Closures', specialty: 'Specialty' };
-
-  document.getElementById('modalContent').innerHTML = `
-    <div class="modal-grid">
-      <div class="modal-image">${getProductSVG(p.type, p.color)}</div>
-      <div class="modal-info">
-        <span class="modal-category">${categoryLabel[p.category]}</span>
-        <h2 class="modal-title">${p.name} — ${p.size}${p.unit}</h2>
-        <p class="modal-desc">${p.description}</p>
-
-        <div class="modal-specs-grid">
-          <div class="modal-spec"><span class="spec-label">Material</span><span class="spec-value">${p.material}</span></div>
-          <div class="modal-spec"><span class="spec-label">Volume/Size</span><span class="spec-value">${p.size} ${p.unit}</span></div>
-          <div class="modal-spec"><span class="spec-label">Weight</span><span class="spec-value">${p.weight}g</span></div>
-          <div class="modal-spec"><span class="spec-label">Neck Size</span><span class="spec-value">${p.neck}mm</span></div>
-          <div class="modal-spec"><span class="spec-label">Color</span><span class="spec-value">${p.color.charAt(0).toUpperCase() + p.color.slice(1)}</span></div>
-          <div class="modal-spec"><span class="spec-label">Category</span><span class="spec-value">${categoryLabel[p.category]}</span></div>
-        </div>
-
-        <div class="modal-features">
-          <h4>Key Features</h4>
-          <div class="modal-feature-tags">
-            ${p.features.map(f => `<span class="modal-ftag">${f}</span>`).join('')}
-          </div>
-        </div>
-
-        <div class="modal-actions">
-          <button class="btn btn-primary" onclick="toggleInquiry(${p.id}); openModal(${p.id});">
-            ${inCart ? '✓ In Inquiry Cart' : '+ Add to Inquiry'}
-          </button>
-          <a href="mailto:info@hpack.co.in?subject=Inquiry: ${encodeURIComponent(p.name + ' ' + p.size + p.unit)}&body=${encodeURIComponent('Dear HPack Team,\n\nI am interested in the following product:\n\nProduct: ' + p.name + '\nSize: ' + p.size + p.unit + '\nMaterial: ' + p.material + '\n\nPlease share pricing and availability.\n\nRegards,')}" class="btn btn-secondary">
-            Email Inquiry
-          </a>
-        </div>
-      </div>
-    </div>`;
-
-  document.getElementById('modalOverlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('active');
-  document.body.style.overflow = '';
-  selectedProduct = null;
-}
-
-// ── Inquiry Cart ──
-function toggleInquiry(id) {
-  const idx = inquiryCart.findIndex(item => item.id === id);
-  if (idx > -1) {
-    inquiryCart.splice(idx, 1);
-  } else {
-    const p = products.find(item => item.id === id);
-    if (p) inquiryCart.push({ id: p.id, name: p.name, size: p.size, unit: p.unit, material: p.material });
-  }
-  saveCart();
-  updateCartUI();
-  renderProducts();
-}
-
-function saveCart() {
-  localStorage.setItem('hpack_inquiry', JSON.stringify(inquiryCart));
-}
-
-function updateCartUI() {
-  const bar = document.getElementById('inquiryBar');
-  const countEl = document.getElementById('inquiryCount');
-  const listEl = document.getElementById('inquiryList');
-
-  if (inquiryCart.length === 0) {
-    bar.classList.remove('active');
-    return;
-  }
-
-  bar.classList.add('active');
-  countEl.textContent = inquiryCart.length;
-  listEl.innerHTML = inquiryCart.map(item =>
-    `<span class="inquiry-item">${item.name} ${item.size}${item.unit}
-      <button onclick="toggleInquiry(${item.id})" class="inquiry-remove">&times;</button>
-    </span>`
-  ).join('');
-}
-
-function sendInquiry() {
-  if (inquiryCart.length === 0) return;
-  const items = inquiryCart.map(item => `• ${item.name} — ${item.size}${item.unit} (${item.material})`).join('\n');
-  const subject = `Product Inquiry — ${inquiryCart.length} item(s)`;
-  const body = `Dear HPack Team,\n\nI am interested in the following products:\n\n${items}\n\nPlease share pricing, MOQ, and availability.\n\nRegards,`;
-  window.location.href = `mailto:info@hpack.co.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}

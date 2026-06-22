@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Catalog — HPack | Himalayan Packaging Industries</title>
-  <meta name="description" content="Browse HPack's complete product catalog — PET, PP, HDPE & LDPE pharmaceutical bottles, FMCG containers, cosmetic packaging, caps & closures. Filter by material, size, and industry.">
+  <title>Product Catalogue | HPack - Himalayan Packaging Industries</title>
+  <meta name="description" content="Complete product catalogue of HPack – Himalayan Packaging Industries. Browse pharma containers, FMCG bottles, cosmetic containers, liquor bottles, caps & closures, and sanitizer bottles.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="products.css">
 </head>
 <body>
 
-  <!-- ═══════ NAVIGATION ═══════ -->
-  <nav class="navbar scrolled" id="navbar">
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
     <div class="container navbar-inner">
       <a href="index.html" class="nav-logo" aria-label="HPack Home">
         <img src="logo.jpg" alt="HPack" class="logo-img"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="logo-fallback" style="display:none;">
           <div class="logo-mark"><span>H</span></div>
           <div class="logo-text">
@@ -29,11 +30,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#about">About</a></li>
-        <li><a href="products.html" style="color:var(--primary);font-weight:700;">Product Catalog</a></li>
-        <li><a href="index.html#manufacturing">Manufacturing</a></li>
-        <li><a href="index.html#quality">Quality</a></li>
-        <li><a href="index.html#industries">Industries</a></li>
-        <li><a href="index.html#careers">Careers</a></li>
+        <li><a href="products.html" class="active">Product Catalogue</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
       <div class="nav-cta">
@@ -45,210 +42,107 @@
     </div>
   </nav>
 
-  <!-- ═══════ HERO / SEARCH ═══════ -->
-  <section class="catalog-hero">
+  <!-- PAGE HEADER -->
+  <section class="cat-header">
     <div class="container">
-      <h1>Product Catalog</h1>
-      <p>Browse our complete range of pharmaceutical bottles, FMCG containers, caps, closures, and specialty packaging.</p>
-      <div class="search-container">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input type="text" id="searchInput" placeholder="Search by name, material, size, feature...">
+      <div class="cat-header-inner">
+        <div>
+          <div class="hero-badge" style="margin-bottom:12px">
+            <span class="badge-dot"></span>193 Products &bull; 6 Categories
+          </div>
+          <h1 class="cat-title">Product Catalogue</h1>
+          <p class="cat-subtitle">Official specifications from Himalayan Group of Industries. All dimensions in mm, weight in grams, OFC in ml.</p>
+        </div>
+        <a href="new_catalogue.pdf" class="btn btn-secondary" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF Catalogue
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ CATALOG BODY ═══════ -->
-  <section class="container" style="padding-top:8px;">
-
-    <div class="catalog-bar">
-      <div class="catalog-bar-left">
-        Showing <strong id="productCount">0</strong> of <strong id="productTotal">0</strong> products
-      </div>
-      <button class="filter-toggle-btn" id="filterToggle">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
-        Filters
-      </button>
-    </div>
-
-    <div class="catalog-layout">
-
-      <!-- ── Sidebar Filters ── -->
-      <aside class="catalog-sidebar">
-
-        <!-- Category -->
-        <div class="filter-section">
-          <div class="filter-section-title">Category</div>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="category" value="pharma">
-            Pharma Containers
-            <span class="filter-count">14</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="category" value="fmcg">
-            FMCG Containers
-            <span class="filter-count">6</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="category" value="cosmetic">
-            Cosmetic Containers
-            <span class="filter-count">5</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="category" value="liquor">
-            Liquor Containers
-            <span class="filter-count">3</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="category" value="caps">
-            Caps &amp; Closures
-            <span class="filter-count">6</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="category" value="specialty">
-            Specialty Products
-            <span class="filter-count">3</span>
-          </label>
+  <!-- FILTERS -->
+  <section class="cat-filters-bar">
+    <div class="container">
+      <div class="filter-row">
+        <div class="filter-tabs" id="categoryTabs">
+          <button class="filter-tab active" data-cat="all">All <span class="tab-count" id="count-all"></span></button>
+          <button class="filter-tab" data-cat="pharma">Pharma <span class="tab-count" id="count-pharma"></span></button>
+          <button class="filter-tab" data-cat="fmcg">FMCG <span class="tab-count" id="count-fmcg"></span></button>
+          <button class="filter-tab" data-cat="cosmetic">Cosmetic <span class="tab-count" id="count-cosmetic"></span></button>
+          <button class="filter-tab" data-cat="liquor">Liquor <span class="tab-count" id="count-liquor"></span></button>
+          <button class="filter-tab" data-cat="caps">Caps &amp; Closures <span class="tab-count" id="count-caps"></span></button>
+          <button class="filter-tab" data-cat="sanitizer">Sanitizer <span class="tab-count" id="count-sanitizer"></span></button>
         </div>
-
-        <!-- Material -->
-        <div class="filter-section">
-          <div class="filter-section-title">Material</div>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="material" value="PET">
-            PET
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="material" value="HDPE">
-            HDPE
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="material" value="PP">
-            PP
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="material" value="PC">
-            PC (Polycarbonate)
-          </label>
-        </div>
-
-        <!-- Size Range -->
-        <div class="filter-section">
-          <div class="filter-section-title">Size Range</div>
-          <label class="filter-option">
-            <input type="radio" name="sizeRange" value="all" checked class="filter-checkbox">
-            All Sizes
-          </label>
-          <label class="filter-option">
-            <input type="radio" name="sizeRange" value="small" class="filter-checkbox">
-            Small (≤ 50ml/mm)
-          </label>
-          <label class="filter-option">
-            <input type="radio" name="sizeRange" value="medium" class="filter-checkbox">
-            Medium (51–200ml)
-          </label>
-          <label class="filter-option">
-            <input type="radio" name="sizeRange" value="large" class="filter-checkbox">
-            Large (201–500ml)
-          </label>
-          <label class="filter-option">
-            <input type="radio" name="sizeRange" value="xlarge" class="filter-checkbox">
-            Extra Large (500ml+)
-          </label>
-        </div>
-
-        <!-- Industry -->
-        <div class="filter-section">
-          <div class="filter-section-title">Industry</div>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="industry" value="pharmaceutical">
-            Pharmaceutical
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="industry" value="fmcg">
-            FMCG
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="industry" value="cosmetic">
-            Cosmetic
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="industry" value="liquor">
-            Liquor &amp; Spirits
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="industry" value="sports">
-            Sports
-          </label>
-        </div>
-
-        <!-- Color -->
-        <div class="filter-section">
-          <div class="filter-section-title">Color</div>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="color" value="transparent">
-            Transparent / Clear
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="color" value="amber">
-            Amber / Brown
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" class="filter-checkbox" data-group="color" value="white">
-            White / Opaque
-          </label>
-        </div>
-
-        <button class="clear-filters-btn" id="clearFilters">✕ Clear All Filters</button>
-      </aside>
-
-      <!-- ── Product Grid ── -->
-      <div>
-        <div class="product-grid" id="productGrid"></div>
-
-        <div class="empty-state" id="emptyState">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor">
-            <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
-          </svg>
-          <h3>No products found</h3>
-          <p>Try adjusting your filters or search query to find what you're looking for.</p>
+        <div class="filter-search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" id="searchInput" placeholder="Search by product code…">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ PRODUCT DETAIL MODAL ═══════ -->
+  <!-- PRODUCT GRID -->
+  <section class="cat-grid-section">
+    <div class="container">
+      <div class="product-count-bar">
+        <span id="resultCount"></span>
+        <button class="enquire-all-btn" id="enquireSelected" style="display:none">
+          Enquire about selected (<span id="selectedCount">0</span>)
+        </button>
+      </div>
+      <div class="cat-grid" id="productGrid"></div>
+      <div class="no-results" id="noResults" style="display:none">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <p>No products match your search.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY MODAL -->
   <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-container">
+    <div class="modal">
       <button class="modal-close" id="modalClose">&times;</button>
-      <div id="modalContent"></div>
+      <h3 class="modal-title">Product Enquiry</h3>
+      <div id="modalProductInfo"></div>
+      <form id="enquiryForm" class="enquiry-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" name="name" required placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" name="company" placeholder="Company / Organisation">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message / Quantity</label>
+          <textarea name="message" rows="3" placeholder="Approximate quantity, customisation needs, delivery location…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:8px">Send Enquiry</button>
+      </form>
     </div>
   </div>
 
-  <!-- ═══════ INQUIRY CART BAR ═══════ -->
-  <div class="inquiry-bar" id="inquiryBar">
-    <div class="container inquiry-inner">
-      <div class="inquiry-left">
-        <div class="inquiry-count-badge" id="inquiryCount">0</div>
-        <span>Products in Inquiry</span>
-        <div class="inquiry-items" id="inquiryList"></div>
-      </div>
-      <div class="inquiry-actions">
-        <button class="inquiry-send-btn" onclick="sendInquiry()">📧 Send Inquiry</button>
-        <button class="inquiry-clear-btn" id="cartClear">Clear</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════ FOOTER ═══════ -->
-  <footer class="footer-compact">
+  <!-- FOOTER -->
+  <footer class="footer-simple">
     <div class="container">
-      © 2006 – 2026 Himalayan Packaging Industries Pvt. Ltd. &bull;
-      <a href="index.html">Home</a> &bull;
-      <a href="index.html#contact">Contact</a> &bull;
-      <a href="mailto:info@hpack.co.in">info@hpack.co.in</a>
+      <p>© 2024 Himalayan Group of Industries. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="products.js"></script>
+  <script src="catalogue.js"></script>
 </body>
 </html>
